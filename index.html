@@ -1,0 +1,1541 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Senior Mobile Developer Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-color: #6366f1;
+            --secondary-color: #8b5cf6;
+            --dark-bg: #0f172a;
+            --dark-surface: #1e293b;
+            --text-primary: #f1f5f9;
+            --text-secondary: #cbd5e1;
+            --accent: #06b6d4;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: var(--dark-bg);
+            color: var(--text-primary);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        nav .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+            font-weight: 500;
+        }
+
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding: 6rem 2rem 4rem;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #2d1b4e 100%);
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 20% 50%, rgba(99, 102, 241, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(139, 92, 246, 0.15) 0%, transparent 50%);
+            pointer-events: none;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .hero-left {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .profile-section {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
+
+        .profile-picture {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 3px solid rgba(99, 102, 241, 0.6);
+            box-shadow: 0 0 40px rgba(99, 102, 241, 0.5), inset 0 0 20px rgba(99, 102, 241, 0.2);
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, #4a5568, #2d3748);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .profile-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        .profile-picture::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.3), rgba(139, 92, 246, 0.3));
+            border-radius: 50%;
+            z-index: -1;
+        }
+
+        .profile-picture span {
+            position: relative;
+            z-index: 2;
+        }
+
+        .profile-picture::after {
+            content: '';
+            position: absolute;
+            inset: -3px;
+            border-radius: 50%;
+            border: 2px solid rgba(99, 102, 241, 0.3);
+            animation: pulse-glow 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse-glow {
+
+            0%,
+            100% {
+                opacity: 0.5;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 1;
+                transform: scale(1.05);
+            }
+        }
+
+        .hero-name {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+        }
+
+        .title-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 0.75rem 1.5rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.5);
+            border-radius: 50px;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .title-badge .star-icon {
+            width: 20px;
+            height: 20px;
+            background: rgba(99, 102, 241, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.7rem;
+        }
+
+        .hero-description {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+            max-width: 600px;
+            margin-top: 1rem;
+        }
+
+        .hero-cards {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .hero-card {
+            background: rgba(30, 41, 59, 0.6);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .hero-card-label {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 0.75rem;
+        }
+
+        .hero-card-value {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .hero-card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+        }
+
+        .hero-card-tag {
+            padding: 0.4rem 0.9rem;
+            background: rgba(99, 102, 241, 0.1);
+            border: 1px solid rgba(99, 102, 241, 0.5);
+            border-radius: 20px;
+            font-size: 0.85rem;
+            color: var(--accent);
+            font-weight: 600;
+        }
+
+        .hero-right {
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-illustration {
+            position: relative;
+            width: 280px;
+            height: 560px;
+            background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+            border: 8px solid #0a0a0a;
+            border-radius: 40px;
+            padding: 8px;
+            box-shadow:
+                0 0 0 2px rgba(99, 102, 241, 0.3),
+                0 20px 60px rgba(0, 0, 0, 0.8),
+                0 0 100px rgba(99, 102, 241, 0.2),
+                inset 0 0 30px rgba(0, 0, 0, 0.5),
+                inset 0 2px 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .phone-notch {
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 140px;
+            height: 25px;
+            background: #0a0a0a;
+            border-radius: 0 0 20px 20px;
+            z-index: 10;
+        }
+
+        .phone-notch::before {
+            content: '';
+            position: absolute;
+            top: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 60px;
+            height: 6px;
+            background: #1a1a1a;
+            border-radius: 3px;
+        }
+
+        .phone-screen {
+            width: 100%;
+            height: 100%;
+            background: #0d1117;
+            border-radius: 32px;
+            padding: 0;
+            font-family: 'Courier New', 'Monaco', monospace;
+            font-size: 0.65rem;
+            color: #c9d1d9;
+            overflow: hidden;
+            position: relative;
+            line-height: 1.8;
+            box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.5);
+        }
+
+        .phone-status-bar {
+            height: 44px;
+            background: linear-gradient(to bottom, rgba(13, 17, 23, 0.95), rgba(13, 17, 23, 0.8));
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+            font-size: 0.6rem;
+            color: #c9d1d9;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .status-left {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-right {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .status-dot {
+            width: 4px;
+            height: 4px;
+            background: #c9d1d9;
+            border-radius: 50%;
+        }
+
+        .status-bar {
+            width: 18px;
+            height: 8px;
+            border: 1px solid #c9d1d9;
+            border-radius: 2px;
+            position: relative;
+        }
+
+        .status-bar::after {
+            content: '';
+            position: absolute;
+            left: 1px;
+            top: 1px;
+            width: 14px;
+            height: 6px;
+            background: #4ade80;
+            border-radius: 1px;
+        }
+
+        .phone-content {
+            padding: 20px;
+            height: calc(100% - 44px - 34px);
+            overflow-y: auto;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+        }
+
+        .phone-content::-webkit-scrollbar {
+            display: none;
+        }
+
+        .phone-home-indicator {
+            position: absolute;
+            bottom: 8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 134px;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 3px;
+        }
+
+        .code-snippet {
+            line-height: 1.6;
+        }
+
+        .code-keyword {
+            color: #c792ea;
+        }
+
+        .code-class {
+            color: #82aaff;
+        }
+
+        .code-property {
+            color: #7fdbca;
+        }
+
+        .code-value {
+            color: #ffcb6b;
+        }
+
+        .tech-badge {
+            position: absolute;
+            background: rgba(30, 41, 59, 0.9);
+            border: 1px solid rgba(99, 102, 241, 0.5);
+            border-radius: 12px;
+            padding: 0.75rem 1rem;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 5px 20px rgba(99, 102, 241, 0.3);
+        }
+
+        .tech-badge-icon {
+            width: 24px;
+            height: 24px;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .tech-badge-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: 0.25rem;
+        }
+
+        .tech-badge-subtitle {
+            font-size: 0.65rem;
+            color: var(--text-secondary);
+        }
+
+        .badge-ui {
+            bottom: -60px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .connection-line {
+            position: absolute;
+            border: 1px dashed rgba(99, 102, 241, 0.4);
+            pointer-events: none;
+        }
+
+        .line-1 {
+            bottom: 50px;
+            left: 50%;
+            width: 2px;
+            height: 60px;
+            transform: translateX(-50%);
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .about-text {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            line-height: 1.8;
+        }
+
+        .about-text p {
+            margin-bottom: 1.5rem;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: var(--dark-surface);
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, border-color 0.3s;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary-color);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: 700;
+            background: linear-gradient(135deg, var(--primary-color), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .stat-label {
+            color: var(--text-secondary);
+            margin-top: 0.5rem;
+        }
+
+        .award-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+        }
+
+        .award-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .award-image:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 70px rgba(99, 102, 241, 0.3);
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: var(--dark-surface);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-category h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+        }
+
+        .skill-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+        }
+
+        .skill-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        /* Experience Section */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(180deg, var(--primary-color), var(--secondary-color));
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding-left: 3rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0.5rem;
+            width: 12px;
+            height: 12px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            border: 3px solid var(--dark-bg);
+        }
+
+        .timeline-content {
+            background: var(--dark-surface);
+            padding: 2rem;
+            border-radius: 15px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .timeline-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .company {
+            color: var(--accent);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .timeline-content .period {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 1rem;
+        }
+
+        .timeline-content ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        .timeline-content li {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .timeline-content li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 4rem;
+        }
+
+        .project-card {
+            background: var(--dark-surface);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(99, 102, 241, 0.3);
+        }
+
+        .project-content {
+            padding: 3rem;
+        }
+
+        .project-content h3 {
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+        }
+
+        .project-description {
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        .project-description p {
+            margin-bottom: 1rem;
+        }
+
+        .project-description ul {
+            list-style: none;
+            padding-left: 0;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .project-description ul li {
+            margin-bottom: 0.75rem;
+            padding-left: 1.5rem;
+            position: relative;
+            color: var(--text-secondary);
+        }
+
+        .project-description ul li::before {
+            content: '▸';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+
+        .project-media {
+            margin-bottom: 2.5rem;
+        }
+
+        .project-images-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-image-item {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-image-item:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);
+        }
+
+        .project-videos-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .project-video-item {
+            width: 100%;
+            height: 400px;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            overflow: hidden;
+            background: #000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-video-item video {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        .project-video-fullwidth {
+            height: 600px;
+            max-width: 100%;
+        }
+
+        .project-video-taller {
+            height: 650px;
+        }
+
+        .project-videos-other {
+            grid-template-columns: 2fr 1fr;
+        }
+
+        .project-video-container {
+            width: 100%;
+            border-radius: 12px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: #000;
+        }
+
+        .project-video {
+            width: 100%;
+            height: auto;
+            display: block;
+            max-height: 600px;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            margin-top: 2rem;
+        }
+
+        .project-tag {
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--accent);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            border: 1px solid rgba(99, 102, 241, 0.3);
+        }
+
+        @media (max-width: 1024px) {
+            .project-images-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-image-item {
+                height: 400px;
+            }
+
+            .project-videos-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .project-videos-other {
+                grid-template-columns: 2fr 1fr;
+            }
+
+            .project-video-item {
+                height: 400px;
+            }
+
+            .project-video-taller {
+                height: 450px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .project-images-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-image-item {
+                height: 300px;
+            }
+
+            .project-videos-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-videos-other {
+                grid-template-columns: 1fr;
+            }
+
+            .project-video-item {
+                height: 300px;
+            }
+
+            .project-video-taller {
+                height: 350px;
+            }
+
+            .project-content {
+                padding: 2rem;
+            }
+
+            .project-content h3 {
+                font-size: 1.5rem;
+            }
+        }
+
+        /* Contact Section */
+        .contact-content {
+            text-align: center;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-content p {
+            color: var(--text-secondary);
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .contact-link {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            padding: 1rem 2rem;
+            background: var(--dark-surface);
+            border-radius: 50px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s;
+        }
+
+        .contact-link:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-secondary);
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+
+            .hero-right {
+                order: -1;
+            }
+
+            .phone-illustration {
+                width: 240px;
+                height: 480px;
+            }
+
+            .phone-notch {
+                width: 120px;
+                height: 22px;
+            }
+
+            .phone-home-indicator {
+                width: 115px;
+                height: 4px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+            }
+
+            .hero {
+                padding: 4rem 1.5rem 2rem;
+            }
+
+            .hero-name {
+                font-size: 2rem;
+            }
+
+            .hero-description {
+                font-size: 1rem;
+            }
+
+            .hero-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .phone-illustration {
+                width: 200px;
+                height: 400px;
+            }
+
+            .phone-notch {
+                width: 100px;
+                height: 18px;
+            }
+
+            .phone-home-indicator {
+                width: 96px;
+                height: 4px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+            }
+
+            .award-image-container {
+                padding: 1rem;
+            }
+
+            .award-image {
+                max-width: 100%;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="container">
+            <div class="logo">BA</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#math-futures">Math Futures</a></li>
+                <li><a href="#other-projects">Other Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <div class="hero-left">
+                <div class="profile-section">
+                    <div class="profile-picture">
+                        <img src="Downloads/bashar profile picture.jpeg" alt="Bashar Altamimi" onerror="this.style.display='none'; this.parentElement.innerHTML='<span>BA</span>';">
+                    </div>
+                    <h1 class="hero-name">Bashar Altamimi</h1>
+                    <div class="title-badge">
+                        <span class="star-icon">★</span>
+                        <span>SENIOR MOBILE DEVELOPER</span>
+                    </div>
+                </div>
+                <p class="hero-description">
+                    Specialized in building scalable, high-quality Flutter applications, collaborating with
+                    cross-functional teams, and delivering reliable features used by real users.
+                </p>
+                <div class="hero-cards">
+                    <div class="hero-card">
+                        <div class="hero-card-label">EXPERIENCE</div>
+                        <div class="hero-card-value">5+ Years</div>
+                    </div>
+                    <div class="hero-card">
+                        <div class="hero-card-label">CORE EXPERTISE</div>
+                        <div class="hero-card-tags">
+                            <span class="hero-card-tag">FLUTTER</span>
+                            <span class="hero-card-tag">DART</span>
+                            <span class="hero-card-tag">SWIFT-UI</span>
+                            <span class="hero-card-tag">OUTSYSTEMS</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="hero-right">
+                <div class="phone-illustration">
+                    <div class="phone-notch"></div>
+                    <div class="phone-screen">
+                        <div class="phone-status-bar">
+                            <div class="status-left">
+                                <span>9:41</span>
+                            </div>
+                            <div class="status-right">
+                                <div class="status-bar"></div>
+                                <div class="status-dot"></div>
+                                <div class="status-dot"></div>
+                            </div>
+                        </div>
+                        <div class="phone-content">
+                            <div class="code-snippet">
+                                <span class="code-keyword">class</span> <span class="code-class">PortfolioCore</span>
+                                <span class="code-keyword">extends</span> <span
+                                    class="code-class">StatelessWidget</span>
+                                {<br>
+                                &nbsp;&nbsp;<span class="code-property">architecture</span>: <span
+                                    class="code-value">'Clean'</span>,<br>
+                                &nbsp;&nbsp;<span class="code-property">state</span>: <span
+                                    class="code-value">'BLOC'</span>,<br>
+                                &nbsp;&nbsp;<span class="code-property">quality</span>: <span
+                                    class="code-value">double.infinity</span><br>
+                                }
+                            </div>
+                        </div>
+                        <div class="phone-home-indicator"></div>
+                    </div>
+                    <div class="connection-line line-1"></div>
+                    <div class="tech-badge badge-ui">
+                        <div class="tech-badge-icon">⚡</div>
+                        <div class="tech-badge-title">UI RENDERING</div>
+                        <div class="tech-badge-subtitle">Flutter Engine</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2 class="section-title">About Me</h2>
+        <div class="about-content">
+            <div class="about-text">
+                <p>
+                    Senior Mobile Developer with over 5 years of professional experience working on production-grade
+                    mobile
+                    applications within a corporate environment. I specialize in building scalable, high-quality mobile
+                    solutions, with a strong focus on Flutter and native mobile development.
+                </p>
+                <p>
+                    I have contributed to large, real-world applications used by end users, collaborating closely with
+                    backend engineers, designers, QA teams, and stakeholders to deliver reliable and maintainable
+                    features.
+                    My experience covers the full development lifecycle, from understanding requirements and
+                    implementing
+                    clean architecture, to testing, deployment, and post-release support.
+                </p>
+                <p>
+                    I value code quality, performance, and long-term maintainability, and I approach every project with
+                    an
+                    ownership mindset. Whether working independently or as part of a team, I prioritize clear
+                    communication,
+                    attention to detail, and delivering solutions that meet both technical and business goals.
+                </p>
+            </div>
+            <div class="award-image-container">
+                <img src="Downloads/IMG_1485.jpg"
+                    alt="MEAFINANCE AWARDS 2022 - Best Mobile Banking Service Implementation - Commercial Bank of Dubai"
+                    class="award-image">
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2 class="section-title">Technical Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Mobile Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Flutter</span>
+                    <span class="skill-tag">Dart</span>
+                    <span class="skill-tag">SwiftUI</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Web Development</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Flutter Web</span>
+                    <span class="skill-tag">React</span>
+                    <span class="skill-tag">HTML5</span>
+                    <span class="skill-tag">CSS3</span>
+                    <span class="skill-tag">Bootstrap</span>
+                    <span class="skill-tag">WordPress</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>Backend & Cloud</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">Firebase</span>
+                    <span class="skill-tag">AWS Amplify</span>
+                    <span class="skill-tag">Spring Boot</span>
+                    <span class="skill-tag">OutSystems</span>
+                </div>
+            </div>
+            <div class="skill-category">
+                <h3>APIs & Integration</h3>
+                <div class="skill-tags">
+                    <span class="skill-tag">REST APIs</span>
+                    <span class="skill-tag">Swagger</span>
+                    <span class="skill-tag">Postman</span>
+                    <span class="skill-tag">Proxyman</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2 class="section-title">Professional Experience</h2>
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Senior Mobile Developer - Tech Lead</h3>
+                    <div class="company">PwC</div>
+                    <div class="period">2021 - Present</div>
+                    <ul>
+                        <li>Lead technical architecture decisions and drive mobile development strategy across multiple
+                            projects</li>
+                        <li>Develop high-quality, responsive user interfaces optimized for all devices and screen sizes
+                        </li>
+                        <li>Deliver advanced features including animations, biometric authentication, RSA encryption,
+                            and more</li>
+                        <li>Handle API integrations and review API contracts to ensure seamless backend connectivity
+                        </li>
+                        <li>Mentor and guide development teams, establishing best practices and code quality standards
+                        </li>
+                        <li>Implement comprehensive unit testing and functionality testing to maintain code quality
+                        </li>
+                        <li>Oversee technical implementation of complex features and ensure alignment with business
+                            objectives</li>
+                        <li>Create and present demo presentations to clients showcasing product features and
+                            capabilities</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Mobile Developer</h3>
+                    <div class="company">24 Online</div>
+                    <div class="period">2021 - 2021</div>
+                    <ul>
+                        <li>Developed iOS and Android applications using Flutter framework</li>
+                        <li>Built and maintained backend services using AWS cloud services</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>FullStack Developer</h3>
+                    <div class="company">Salalem Learning</div>
+                    <div class="period">2020 - 2021</div>
+                    <ul>
+                        <li>Developed frontend applications using React.js with focus on user experience and performance
+                        </li>
+                        <li>Built scalable backend services using Django and GraphQL for efficient data management</li>
+                        <li>Implemented software containerization using Docker for streamlined deployment and
+                            scalability</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-content">
+                    <h3>Web Development/Marketing</h3>
+                    <div class="company">TamimiExpo</div>
+                    <div class="period">2019 - 2019</div>
+                    <ul>
+                        <li>Designed and developed responsive web applications with focus on problem-solving and user
+                            experience</li>
+                        <li>Coordinated and managed event planning, execution, and logistics</li>
+                        <li>Executed email marketing campaigns and telemarketing initiatives to drive engagement</li>
+                        <li>Created and managed advertising campaigns across multiple channels</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>CBD - Instant Digital Banking</h3>
+                    <p class="project-description">Experience a feature-rich design with 120+ services for your everyday
+                        banking, most of which are processed instantly.</p>
+                    <div class="project-media">
+                        <div class="project-images-grid">
+                            <img src="projects/cbd/unnamed.webp"
+                                alt="CBD Banking in Minutes - Products and Services" class="project-image-item">
+                            <img src="projects/cbd/unnamed (1).webp"
+                                alt="CBD Personalised Dashboard - Account Overview" class="project-image-item">
+                            <img src="projects/cbd/unnamed (2).webp"
+                                alt="CBD 120+ Instant Banking Services - Welcome Screen" class="project-image-item">
+                            <img src="projects/cbd/unnamed (3).webp"
+                                alt="CBD Transfers & Payments in Seconds" class="project-image-item">
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Dart</span>
+                        <span class="project-tag">Biometric Auth</span>
+                        <span class="project-tag">RSA Encryption</span>
+                        <span class="project-tag">UAE Pass Integration</span>
+                        <span class="project-tag">Push Notifications</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>CBD iBusiness NextGen</h3>
+                    <div class="project-description">
+                        <p>Enjoy seamless corporate banking on the go with an intuitive and user-friendly user
+                            experience.</p>
+                        <p>The application offers 50+ functionalities to manage banking needs on the go. The 3 unique
+                            features which have significantly enhanced the experience are:</p>
+                        <ul>
+                            <li>Seamless authentication using biometrics for both Mobile and Online</li>
+                            <li>Transaction approval in 3 clicks, including QR code</li>
+                            <li>Initiation and real-time tracking of payments, including beneficiary management</li>
+                        </ul>
+                    </div>
+                    <div class="project-media">
+                        <div class="project-images-grid">
+                            <img src="projects/cbd/unnamed (4).webp"
+                                alt="CBD iBusiness NextGen Screenshot 1" class="project-image-item">
+                            <img src="projects/cbd/unnamed.webp"
+                                alt="CBD iBusiness NextGen Screenshot 2" class="project-image-item">
+                            <img src="projects/cbd/unnamed (1).webp"
+                                alt="CBD iBusiness NextGen Screenshot 3" class="project-image-item">
+                            <img src="projects/cbd/unnamed (2).webp"
+                                alt="CBD iBusiness NextGen Screenshot 4" class="project-image-item">
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Dart</span>
+                        <span class="project-tag">Business Banking</span>
+                        <span class="project-tag">Encryption</span>
+                        <span class="project-tag">Biometrics Auth</span>
+                        <span class="project-tag">Push Notifications</span>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Stock Trading Application</h3>
+                    <p class="project-description">A comprehensive stock trading application providing real-time market
+                        data, portfolio management, and seamless trading capabilities.</p>
+                    <div class="project-media">
+                        <div class="project-videos-grid">
+                            <div class="project-video-item">
+                                <video controls controlsList="nofullscreen">
+                                    <source src="projects/icap/icap1.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="project-video-item">
+                                <video controls controlsList="nofullscreen">
+                                    <source src="projects/icap/icap2.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="project-video-item">
+                                <video controls controlsList="nofullscreen">
+                                    <source src="projects/icap/icap3.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Dart</span>
+                        <span class="project-tag">Stock Trading</span>
+                        <span class="project-tag">Socket Integrations</span>
+                        <span class="project-tag">Realtime Data</span>
+                        <span class="project-tag">Charts and Graphs</span>
+                        <span class="project-tag">Encryption</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Math Futures Project -->
+    <section id="math-futures">
+        <h2 class="section-title">Math Futures</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Math Futures</h3>
+                    <p class="project-description">A fun and competitive educational game designed for kids to learn
+                        math in an engaging way. The app combines gamification with learning to make mathematics
+                        enjoyable and interactive.</p>
+                    <div class="project-media">
+                        <div class="project-images-grid">
+                            <img src="projects/math-futures/math1.png" alt="Math Futures - Game Screen"
+                                class="project-image-item">
+                            <img src="projects/math-futures/math2.png" alt="Math Futures - Login Screen"
+                                class="project-image-item">
+                            <img src="projects/math-futures/math3.png" alt="Math Futures - Placement Test"
+                                class="project-image-item">
+                            <img src="projects/math-futures/math4.png" alt="Math Futures - Main Menu"
+                                class="project-image-item">
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Dart</span>
+                        <span class="project-tag">Educational Gaming</span>
+                        <span class="project-tag">Gamification</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Other Projects Section -->
+    <section id="other-projects">
+        <h2 class="section-title">Other Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <div class="project-content">
+                    <h3>Additional Projects</h3>
+                    <p class="project-description">Video demonstrations of additional mobile applications and projects
+                        I've worked on, showcasing various features and functionalities.</p>
+                    <div class="project-media">
+                        <div class="project-videos-grid project-videos-other">
+                            <div class="project-video-item project-video-wider">
+                                <video controls controlsList="nofullscreen">
+                                    <source src="projects/icap/icap4.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                            <div class="project-video-item project-video-taller">
+                                <video controls controlsList="nofullscreen">
+                                    <source src="projects/icap/icap5.mp4" type="video/mp4">
+                                    Your browser does not support the video tag.
+                                </video>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="project-tags">
+                        <span class="project-tag">Flutter</span>
+                        <span class="project-tag">Dart</span>
+                        <span class="project-tag">Mobile Development</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2 class="section-title">Get In Touch</h2>
+        <div class="contact-content">
+            <p>
+                I'm always open to discussing new opportunities, interesting projects, or just having a chat about
+                mobile development.
+                Feel free to reach out!
+            </p>
+            <div class="contact-links">
+                <a href="mailto:tamimi.bashar@gmail.com" class="contact-link">
+                    <span>📧</span> Email
+                </a>
+                <a href="https://www.linkedin.com/in/bashartamimi/" class="contact-link" target="_blank">
+                    <span>💼</span> LinkedIn
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Senior Mobile Developer Portfolio. All rights reserved.</p>
+    </footer>
+
+    <script>
+        // Smooth scroll for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add scroll effect to navigation
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.style.background = 'rgba(15, 23, 42, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 23, 42, 0.95)';
+            }
+        });
+
+        // Intersection Observer for fade-in animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all sections
+        document.querySelectorAll('section > div').forEach(section => {
+            section.style.opacity = '0';
+            section.style.transform = 'translateY(30px)';
+            section.style.transition = 'opacity 0.6s ease-out, transform 0.6s ease-out';
+            observer.observe(section);
+        });
+    </script>
+</body>
+
+</html>
